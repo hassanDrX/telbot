@@ -1,7 +1,7 @@
 from telegram import Update, KeyboardButton, ReplyKeyboardMarkup
 from telegram.ext import ApplicationBuilder, CommandHandler, MessageHandler, filters, ContextTypes
 
-TOKEN = "8241514661:AAH7VyEJDJvaYPUtmfdkdsUDRIV6yz98i7Y"
+TOKEN = "8357870585:AAH4osrzuE4yNQUY8QJqqxZhM3_oqE-vrew"
 
 # Define menu buttons
 menu_buttons = [
