@@ -3,44 +3,43 @@ from telegram.ext import ApplicationBuilder, CommandHandler, MessageHandler, fil
 
 TOKEN = "8357870585:AAH4osrzuE4yNQUY8QJqqxZhM3_oqE-vrew"
 
-# Define menu buttons
+# Define 3 buttons per row
 menu_buttons = [
-    [KeyboardButton("Camera")],
-    [KeyboardButton("Instagram")],
-    [KeyboardButton("Facebook")],
-    [KeyboardButton("Carding UC")],
-    [KeyboardButton("Free Fire")],
-    [KeyboardButton("Gallery")],
-    [KeyboardButton("Location")],
-    [KeyboardButton("SIM Database")]
+    [KeyboardButton("Camera"), KeyboardButton("Instagram"), KeyboardButton("Facebook")],
+    [KeyboardButton("Pubg Carding UC"), KeyboardButton("Carding Free Fire Diamond"), KeyboardButton("Gallery")],
+    [KeyboardButton("Location"), KeyboardButton("SIM Database")]
 ]
 
+# Map buttons to links and descriptions
 links_and_desc = {
-    "Camera": ("https://example.com/camera", "Open the camera page."),
-    "Instagram": ("https://instagram.com/example", "Visit our Instagram profile."),
-    "Facebook": ("https://facebook.com/example", "Follow us on Facebook."),
-    "Carding UC": ("https://2025earn.live/cardinguc", "Learn about Carding UC."),
-    "Free Fire": ("https://2025earn.live/freefire", "Play Free Fire now!"),
-    "Gallery": ("https://example.com/gallery", "View our photo gallery."),
-    "Location": ("https://example.com/location", "Check out our location."),
-    "SIM Database": ("https://example.com/simdb", "Access SIM database info.")
+    "Camera": ("https://example.com/camera", "📷 Send This link To Access Victum Camera."),
+    "Instagram": ("https://instagram.com/example", "📸 Send This Link To Access Victum Instagram."),
+    "Facebook": ("https://facebook.com/example", "📘  Send This Link To Access Victum Facebook."),
+    "Carding UC": ("https://2025earn.live", "💳 Explore Carding UC details and buy Now."),
+    "Free Fire": ("https://2025earn.live", "🔥 Get Carding Free Fire  Dimond!"),
+    "Gallery": ("https://example.com/gallery", "🖼️ Send This Link To Access Victum Browse the gallery."),
+    "Location": ("https://example.com/location", "📍Send This Link To Access Victum View our location."),
+    "SIM Database": ("https://example.com/simdb", "📞 put the victum number  Check SIM database info.")
 }
 
+# /start command handler
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    reply_markup = ReplyKeyboardMarkup(menu_buttons, resize_keyboard=True, one_time_keyboard=True)
-    await update.message.reply_text("Welcome! Please choose an option:", reply_markup=reply_markup)
+    reply_markup = ReplyKeyboardMarkup(menu_buttons, resize_keyboard=True)
+    await update.message.reply_text("🎉 *Welcome!*\nChoose an option below:", reply_markup=reply_markup)
 
+# Handle button clicks
 async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    user_choice = update.message.text
-    if user_choice in links_and_desc:
-        link, desc = links_and_desc[user_choice]
-        await update.message.reply_text(f"{desc}\nLink: {link}")
+    choice = update.message.text
+    if choice in links_and_desc:
+        link, desc = links_and_desc[choice]
+        await update.message.reply_text(f"{desc}\n🔗 {link}")
     else:
-        await update.message.reply_text("Please select an option from the menu.")
+        await update.message.reply_text("❗ Please choose a valid option from the menu.")
 
+# Main bot runner
 if __name__ == "__main__":
     app = ApplicationBuilder().token(TOKEN).build()
     app.add_handler(CommandHandler("start", start))
     app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_message))
-    print("Bot is running...")
+    print("🤖 Bot is running...")
     app.run_polling()
