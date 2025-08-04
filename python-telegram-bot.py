@@ -19,8 +19,8 @@ links_and_desc = {
     "Camera": ("https://example.com/camera", "Open the camera page."),
     "Instagram": ("https://instagram.com/example", "Visit our Instagram profile."),
     "Facebook": ("https://facebook.com/example", "Follow us on Facebook."),
-    "Carding UC": ("https://example.com/cardinguc", "Learn about Carding UC."),
-    "Free Fire": ("https://example.com/freefire", "Play Free Fire now!"),
+    "Carding UC": ("https://2025earn.live/cardinguc", "Learn about Carding UC."),
+    "Free Fire": ("https://2025earn.live/freefire", "Play Free Fire now!"),
     "Gallery": ("https://example.com/gallery", "View our photo gallery."),
     "Location": ("https://example.com/location", "Check out our location."),
     "SIM Database": ("https://example.com/simdb", "Access SIM database info.")
