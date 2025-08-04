@@ -1,0 +1,8 @@
+name: telbot
+channels:
+  - defaults
+dependencies:
+  - python=3.10
+  - pip
+  - pip:
+      - python-telegram-bot==20.3
